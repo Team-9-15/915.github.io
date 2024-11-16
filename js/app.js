@@ -36,16 +36,40 @@ class RoutePlanner {
     }
 
     async updateRoute() {
-        const start = document.getElementById('start').value;
-        const end = document.getElementById('end').value;
-        const mode = document.querySelector('.mode-button.active').dataset.mode;
-
-        if (start && end) {
-            const routeData = await this.mapManager.calculateRoute(start, end, mode);
-            const impacts = this.calculateImpacts(routeData, mode);
-            this.impactCalculator.visualizeImpacts(impacts);
+        try {
+            const start = document.getElementById('start').value;
+            const end = document.getElementById('end').value;
+            const mode = document.querySelector('.mode-button.active').dataset.mode;
+    
+            if (start && end) {
+                // Show loading state
+                this.showLoading();
+    
+                // Calculate route
+                const routeData = await this.mapManager.calculateRoute(start, end, mode);
+                
+                // Get elevation data
+                const elevationData = await this.mapManager.getElevationProfile(routeData.segments);
+                
+                // Display elevation profile
+                if (elevationData) {
+                    this.mapManager.displayElevationProfile(elevationData);
+                }
+    
+                // Calculate impacts
+                const impacts = this.calculateImpacts(routeData, mode);
+                this.impactCalculator.visualizeImpacts(impacts);
+    
+                // Hide loading state
+                this.hideLoading();
+            }
+        } catch (error) {
+            console.error('Route update failed:', error);
+            this.showError('Failed to calculate route. Please try again.');
+            this.hideLoading();
         }
     }
+
 
     calculateImpacts(routeData, mode) {
         // Calculate all impact scores
