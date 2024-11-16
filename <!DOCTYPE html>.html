@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarbonFootPrint - Track Your Product's Journey</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --background: #1a1a2e;
+            --surface: #16213e;
+            --text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: var(--surface);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--surface);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .camera-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .camera-feed {
+            width: 100%;
+            height: 300px;
+            background-color: #2c394b;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .achievement {
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .achievement-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            height: 300px;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-circle"></div>
+            <h1>CarbonFootPrint</h1>
+        </div>
+        <button id="scanButton">Scan Product</button>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="left-column">
+                <div class="card">
+                    <h2>Product Journey</h2>
+                    <div id="map" class="map-container"></div>
+                </div>
+
+                <div class="card">
+                    <h2>Carbon Impact</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Distance</h3>
+                            <div class="stat-value">3,245</div>
+                            <div class="stat-label">kilometers</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Carbon Emissions</h3>
+                            <div class="stat-value">245</div>
+                            <div class="stat-label">kg CO2</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Transport Modes</h3>
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">different modes</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Local Alternative</h3>
+                            <div class="stat-value">-82%</div>
+                            <div class="stat-label">potential savings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="card camera-section">
+                    <h2>Scan Product</h2>
+                    <div class="camera-feed">
+                        <img src="/api/placeholder/400/300" alt="Camera Feed">
+                    </div>
+                    <button id="captureButton">Capture Image</button>
+                </div>
+
+                <div class="card">
+                    <h2>Your Achievements</h2>
+                    <div class="achievements">
+                        <div class="achievement">
+                            <div class="achievement-icon">🌱</div>
+                            <h3>Eco Pioneer</h3>
+                            <p>50 local products</p>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">🌍</div>
+                            <h3>Earth Saver</h3>
+                            <p>1 ton CO2 saved</p>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">⭐</div>
+                            <h3>Top Scanner</h3>
+                            <p>100 products</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Impact History</h2>
+                    <div class="chart-container">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Leaflet Map
+        const map = L.map('map').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add example route
+        const route = [
+            [51.5074, -0.1278], // London
+            [48.8566, 2.3522],  // Paris
+            [52.5200, 13.4050], // Berlin
+            [41.9028, 12.4964]  // Rome
+        ];
+
+        // Draw route line
+        L.polyline(route, {
+            color: '#4CAF50',
+            weight: 3,
+            opacity: 0.7
+        }).addTo(map);
+
+        // Add markers for start and end
+        L.marker(route[0]).addTo(map);
+        L.marker(route[route.length - 1]).addTo(map);
+
+        // Initialize Chart.js
+        const ctx = document.getElementById('impactChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Carbon Savings (kg CO2)',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderColor: '#4CAF50',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Camera functionality
+        const scanButton = document.getElementById('scanButton');
+        const captureButton = document.getElementById('captureButton');
+
+        // Mock camera functionality
+        scanButton.addEventListener('click', () => {
+            alert('Opening camera...');
+        });
+
+        captureButton.addEventListener('click', () => {
+            alert('Image captured! Processing...');
+            setTimeout(() => {
+                // Mock product detection
+                alert('Product detected: Organic Coffee\nOrigin: Colombia\nCalculating carbon footprint...');
+            }, 1500);
+        });
+
+        // Initialize demo product data
+        const productData = {
+            name: 'Organic Coffee',
+            origin: 'Colombia',
+            journey: [
+                { mode: 'truck', distance: 100, emissions: 25 },
+                { mode: 'ship', distance: 3000, emissions: 150 },
+                { mode: 'truck', distance: 145, emissions: 70 }
+            ]
+        };
+    </script>
+</body>
+</html>
