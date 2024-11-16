@@ -5,8 +5,7 @@ class MapManager {
         this.initializeMap();
         this.route = null;
         this.markers = [];
-        this.apiKey = CONFIG.apis.routing;
-        this.baseUrl = 'https://api.openrouteservice.org/v2';
+        this.apiKey = CONFIG.apis.routing; // Your OpenRouteService API key
     }
 
     initializeMap() {
@@ -23,15 +22,17 @@ class MapManager {
         this.markers = [];
     }
 
+
     async geocodeAddress(address) {
         try {
+            // Using Nominatim instead of OpenRouteService for geocoding (no API key required)
             const response = await fetch(
-                `${this.baseUrl}/geocode/search?api_key=${this.apiKey}&text=${encodeURIComponent(address)}`
+                `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`
             );
             const data = await response.json();
             
-            if (data.features && data.features.length > 0) {
-                return data.features[0].geometry.coordinates;
+            if (data && data.length > 0) {
+                return [parseFloat(data[0].lon), parseFloat(data[0].lat)];
             }
             throw new Error('Location not found');
         } catch (error) {
@@ -50,8 +51,8 @@ class MapManager {
             const endCoords = await this.geocodeAddress(end);
 
             // Add markers for start and end points
-            this.addMarker(startCoords.reverse(), 'Start');
-            this.addMarker(endCoords.reverse(), 'End');
+            this.addMarker([startCoords[1], startCoords[0]], 'Start');
+            this.addMarker([endCoords[1], endCoords[0]], 'End');
 
             // Convert transport mode to ORS profile
             const profile = this.getORSProfile(mode);
@@ -59,8 +60,8 @@ class MapManager {
             // Prepare request body
             const body = {
                 coordinates: [
-                    startCoords.reverse(),
-                    endCoords.reverse()
+                    startCoords,
+                    endCoords
                 ],
                 options: {
                     alternative_routes: {
@@ -76,11 +77,12 @@ class MapManager {
 
             // Make API request
             const response = await fetch(
-                `${this.baseUrl}/directions/${profile}/geojson`, {
+                `https://api.openrouteservice.org/v2/directions/${profile}/geojson`, {
                     method: 'POST',
                     headers: {
                         'Authorization': this.apiKey,
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png'
                     },
                     body: JSON.stringify(body)
                 }

@@ -66,3 +66,13 @@
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
+.leaflet-popup-content {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.leaflet-marker-icon {
+    border: none;
+    background: none;
+}
