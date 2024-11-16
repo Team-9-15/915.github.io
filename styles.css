@@ -32,3 +32,16 @@
     background: #007bff;
     color: white;
 }
+/* Add to styles.css */
+#elevation-profile {
+    margin-top: 20px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#elevation-profile svg {
+    width: 100%;
+    height: auto;
+}
