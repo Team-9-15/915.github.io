@@ -11,6 +11,6 @@ const CONFIG = {
     apis: {
         weather: 'YOUR_WEATHER_API_KEY',
         airQuality: 'YOUR_AIRNOW_API_KEY',
-        routing: 'YOUR_OPENROUTE_API_KEY'
+        routing: '5b3ce3597851110001cf62483ee3405e20b844b4b5e0390a3f701f55'
     }
 };
