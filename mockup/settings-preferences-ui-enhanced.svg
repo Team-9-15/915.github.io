@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400">
+  <!-- Background -->
+  <rect width="1200" height="1400" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="100" fill="white" filter="url(#shadow)"/>
+  <text x="40" y="65" font-family="Arial" font-size="36" font-weight="bold">⚙️ Settings &amp; Preferences</text>
+  
+  <!-- Main Content Area -->
+  <g transform="translate(40, 120)">
+    <!-- Personal Profile Section -->
+    <rect x="0" y="0" width="1120" height="280" rx="8" fill="white" filter="url(#shadow)"/>
+    <text x="30" y="50" font-family="Arial" font-size="28" font-weight="bold">Personal Profile</text>
+    
+    <!-- Profile Fields -->
+    <rect x="30" y="80" width="250" height="50" rx="4" fill="#f8fafc"/>
+    <text x="40" y="110" font-family="Arial" font-size="20">Fitness Level</text>
+    <rect x="290" y="80" width="180" height="50" rx="25" fill="#0284c7"/>
+    <text x="320" y="110" font-family="Arial" font-size="20" fill="white">Moderate ▼</text>
+    
+    <rect x="500" y="80" width="250" height="50" rx="4" fill="#f8fafc"/>
+    <text x="510" y="110" font-family="Arial" font-size="20">Mobility Considerations</text>
+    <rect x="760" y="80" width="180" height="50" rx="25" fill="#f1f5f9"/>
+    <text x="790" y="110" font-family="Arial" font-size="20">None ▼</text>
+    
+    <rect x="30" y="150" width="250" height="50" rx="4" fill="#f8fafc"/>
+    <text x="40" y="180" font-family="Arial" font-size="20">Primary Location</text>
+    <rect x="290" y="150" width="350" height="50" rx="4" fill="#f1f5f9"/>
+    <text x="300" y="180" font-family="Arial" font-size="20">123 Main Street, City</text>
+    
+    <rect x="30" y="210" width="250" height="50" rx="4" fill="#f8fafc"/>
+    <text x="40" y="240" font-family="Arial" font-size="20">Preferred Weather</text>
+    <rect x="290" y="210" width="180" height="50" rx="25" fill="#f1f5f9"/>
+    <text x="320" y="240" font-family="Arial" font-size="20">All Types ▼</text>
+    
+    <!-- Priority Weights Section -->
+    <rect x="0" y="300" width="1120" height="400" rx="8" fill="white" filter="url(#shadow)"/>
+    <text x="30" y="350" font-family="Arial" font-size="28" font-weight="bold">Priority Weights</text>
+    
+    <!-- Climate Weight -->
+    <text x="30" y="400" font-family="Arial" font-size="22">Climate Impact</text>
+    <rect x="30" y="420" width="500" height="30" rx="15" fill="#f1f5f9"/>
+    <rect x="30" y="420" width="400" height="30" rx="15" fill="#4ade80"/>
+    <text x="550" y="442" font-family="Arial" font-size="20">80%</text>
+    
+    <!-- Effort Weight -->
+    <text x="30" y="480" font-family="Arial" font-size="22">Physical Effort</text>
+    <rect x="30" y="500" width="500" height="30" rx="15" fill="#f1f5f9"/>
+    <rect x="30" y="500" width="250" height="30" rx="15" fill="#fbbf24"/>
+    <text x="550" y="522" font-family="Arial" font-size="20">50%</text>
+    
+    <!-- Cost Weight -->
+    <text x="30" y="560" font-family="Arial" font-size="22">Cost</text>
+    <rect x="30" y="580" width="500" height="30" rx="15" fill="#f1f5f9"/>
+    <rect x="30" y="580" width="350" height="30" rx="15" fill="#60a5fa"/>
+    <text x="550" y="602" font-family="Arial" font-size="20">70%</text>
+    
+    <!-- Time Weight -->
+    <text x="30" y="620" font-family="Arial" font-size="22">Time</text>
+    <rect x="30" y="640" width="500" height="30" rx="15" fill="#f1f5f9"/>
+    <rect x="30" y="640" width="450" height="30" rx="15" fill="#a855f7"/>
+    <text x="550" y="662" font-family="Arial" font-size="20">90%</text>
+    
+    <!-- Available Transportation Section -->
+    <rect x="0" y="720" width="1120" height="400" rx="8" fill="white" filter="url(#shadow)"/>
+    <text x="30" y="770" font-family="Arial" font-size="28" font-weight="bold">Available Transportation</text>
+    
+    <!-- Transportation Options -->
+    <!-- Owned -->
+    <rect x="30" y="790" width="320" height="310" rx="8" fill="#f8fafc"/>
+    <text x="50" y="820" font-family="Arial" font-size="24" font-weight="bold">Owned</text>
+    <rect x="50" y="840" width="280" height="40" rx="20" fill="#22c55e"/>
+    <text x="70" y="865" font-family="Arial" font-size="18" fill="white">🚲 Bicycle</text>
+    <text x="200" y="865" font-family="Arial" font-size="16" fill="white">Road Bike</text>
+    
+    <rect x="50" y="890" width="280" height="40" rx="20" fill="#22c55e"/>
+    <text x="70" y="915" font-family="Arial" font-size="18" fill="white">🛴 E-Scooter</text>
+    <text x="200" y="915" font-family="Arial" font-size="16" fill="white">Xiaomi Pro</text>
+    
+    <rect x="50" y="940" width="280" height="40" rx="20" fill="#94a3b8"/>
+    <text x="70" y="965" font-family="Arial" font-size="18" fill="white">🚗 Car</text>
+    <text x="200" y="965" font-family="Arial" font-size="16" fill="white">Add Vehicle</text>
+    
+    <!-- Subscriptions -->
+    <rect x="370" y="790" width="320" height="310" rx="8" fill="#f8fafc"/>
+    <text x="390" y="820" font-family="Arial" font-size="24" font-weight="bold">Subscriptions</text>
+    <rect x="390" y="840" width="280" height="40" rx="20" fill="#22c55e"/>
+    <text x="410" y="865" font-family="Arial" font-size="18" fill="white">🚂 Transit Pass</text>
+    <text x="560" y="865" font-family="Arial" font-size="16" fill="white">Monthly</text>
+    
+    <rect x="390" y="890" width="280" height="40" rx="20" fill="#94a3b8"/>
+    <text x="410" y="915" font-family="Arial" font-size="18" fill="white">🚲 Bike Share</text>
+    <text x="560" y="915" font-family="Arial" font-size="16" fill="white">Subscribe</text>
+    
+    <rect x="390" y="940" width="280" height="40" rx="20" fill="#94a3b8"/>
+    <text x="410" y="965" font-family="Arial" font-size="18" fill="white">🛵 Scooter Share</text>
+    <text x="560" y="965" font-family="Arial" font-size="16" fill="white">Subscribe</text>
+    
+    <!-- Access -->
+    <rect x="710" y="790" width="320" height="310" rx="8" fill="#f8fafc"/>
+    <text x="730" y="820" font-family="Arial" font-size="24" font-weight="bold">Infrastructure</text>
+    <rect x="730" y="840" width="280" height="40" rx="20" fill="#22c55e"/>
+    <text x="750" y="865" font-family="Arial" font-size="18" fill="white">🅿️ Home Parking</text>
+    <text x="900" y="865" font-family="Arial" font-size="16" fill="white">Available</text>
+    
+    <rect x="730" y="890" width="280" height="40" rx="20" fill="#22c55e"/>
+    <text x="750" y="915" font-family="Arial" font-size="18" fill="white">🚲 Bike Storage</text>
+    <text x="900" y="915" font-family="Arial" font-size="16" fill="white">Secure</text>
+    
+    <rect x="730" y="940" width="280" height="40" rx="20" fill="#22c55e"/>
+    <text x="750" y="965" font-family="Arial" font-size="18" fill="white">🔌 Charging</text>
+    <text x="900" y="965" font-family="Arial" font-size="16" fill="white">Available</text>
+    
+    <!-- Save Button -->
+    <rect x="30" y="1140" width="160" height="60" rx="30" fill="#0284c7"/>
+    <text x="75" y="1178" font-family="Arial" font-size="24" fill="white">Save</text>
+    
+    <!-- Reset Button -->
+    <rect x="210" y="1140" width="160" height="60" rx="30" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="255" y="1178" font-family="Arial" font-size="24">Reset</text>
+  </g>
+  
+  <!-- Shadows and Filters -->
+  <defs>
+    <filter id="shadow" x="-1" y="-1" width="102%" height="102%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+</svg>
