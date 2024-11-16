@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="#f8fafc"/>
+  
+  <!-- Header/Navigation -->
+  <rect x="0" y="0" width="1200" height="80" fill="white" filter="url(#shadow)"/>
+  <text x="40" y="50" font-family="Arial" font-size="28" font-weight="bold">🚂 Train Transportation Analysis</text>
+  <!-- Navigation Tabs -->
+  <rect x="400" y="0" width="120" height="80" fill="#f1f5f9"/>
+  <text x="435" y="45" font-family="Arial" font-size="18" fill="#666">Overview</text>
+  <rect x="520" y="0" width="120" height="80" fill="#0284c7"/>
+  <text x="555" y="45" font-family="Arial" font-size="18" fill="white">Details</text>
+  <rect x="640" y="0" width="120" height="80" fill="#f1f5f9"/>
+  <text x="675" y="45" font-family="Arial" font-size="18" fill="#666">Compare</text>
+
+  <!-- Main Content Area -->
+  <g transform="translate(20, 100)">
+    <!-- Climate Impact Section -->
+    <rect x="0" y="0" width="370" height="960" rx="8" fill="white" filter="url(#shadow)"/>
+    <text x="20" y="50" font-family="Arial" font-size="24" font-weight="bold" fill="#2e7d32">Climate Impact</text>
+    
+    <!-- Climate Score Circle -->
+    <circle cx="320" cy="45" r="30" fill="#22c55e" fill-opacity="0.2"/>
+    <text x="310" y="52" font-family="Arial" font-size="20" font-weight="bold" fill="#16a34a">B+</text>
+    
+    <!-- Climate Impact Graph -->
+    <rect x="20" y="80" width="330" height="220" rx="4" fill="#f8fafc"/>
+    <text x="30" y="110" font-family="Arial" font-size="18" font-weight="bold">Emissions Per Passenger-km</text>
+    <!-- Graph Lines -->
+    <path d="M50 260 L380 260" stroke="#e2e8f0" stroke-width="1"/>
+    <path d="M50 220 L380 220" stroke="#e2e8f0" stroke-width="1"/>
+    <path d="M50 180 L380 180" stroke="#e2e8f0" stroke-width="1"/>
+    <path d="M50 140 L380 140" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Data Line (showing emissions varying by passenger load) -->
+    <path d="M50 200 C150 210, 200 170, 350 160" stroke="#22c55e" fill="none" stroke-width="2"/>
+    
+    <!-- Graph Legend -->
+    <text x="50" y="130" font-family="Arial" font-size="14">Peak Hours</text>
+    <text x="200" y="130" font-family="Arial" font-size="14">Off-peak</text>
+    <text x="350" y="130" font-family="Arial" font-size="14">Night</text>
+    
+    <!-- Climate Impact Stats -->
+    <g transform="translate(20, 320)">
+      <!-- Stats Cards -->
+      <rect x="0" y="0" width="155" height="100" rx="4" fill="#f8fafc"/>
+      <text x="10" y="30" font-family="Arial" font-size="16">Per Person CO₂</text>
+      <text x="10" y="65" font-family="Arial" font-size="24" font-weight="bold">0.041</text>
+      <text x="85" y="65" font-family="Arial" font-size="18">kg/km</text>
+      
+      <rect x="175" y="0" width="155" height="100" rx="4" fill="#f8fafc"/>
+      <text x="185" y="30" font-family="Arial" font-size="16">Total Capacity</text>
+      <text x="185" y="65" font-family="Arial" font-size="24" font-weight="bold">720</text>
+      <text x="260" y="65" font-family="Arial" font-size="18">people</text>
+    </g>
+    
+    <!-- Environmental Impact Details -->
+    <g transform="translate(20, 440)">
+      <rect x="0" y="0" width="330" height="250" rx="8" fill="#f8fafc"/>
+      <text x="20" y="40" font-family="Arial" font-size="18" font-weight="bold">Environmental Impact Details</text>
+      <rect x="20" y="60" width="290" height="1" fill="#e2e8f0"/>
+      
+      <text x="20" y="100" font-family="Arial" font-size="16" fill="#666">Infrastructure</text>
+      <text x="20" y="140" font-family="Arial" font-size="16" fill="#666">Power Source</text>
+      <text x="20" y="180" font-family="Arial" font-size="16" fill="#666">Land Use</text>
+      
+      <text x="220" y="100" font-family="Arial" font-size="16" fill="#666">3.2t CO₂e/km</text>
+      <text x="220" y="140" font-family="Arial" font-size="16" fill="#666">Mixed Grid</text>
+      <text x="220" y="180" font-family="Arial" font-size="16" fill="#666">8.5m²/person</text>
+      
+      <rect x="20" y="200" width="120" height="35" rx="17.5" fill="#4ade80"/>
+      <text x="45" y="223" font-family="Arial" font-size="16" fill="white">View More</text>
+    </g>
+    
+    <!-- Effort Section -->
+    <rect x="390" y="0" width="370" height="960" rx="8" fill="white" filter="url(#shadow)"/>
+    <text x="410" y="50" font-family="Arial" font-size="24" font-weight="bold" fill="#ed6c02">Physical Effort</text>
+    
+    <!-- Effort Score -->
+    <circle cx="710" cy="45" r="30" fill="#4ade80" fill-opacity="0.2"/>
+    <text x="700" y="52" font-family="Arial" font-size="20" font-weight="bold" fill="#16a34a">A-</text>
+    
+    <!-- Effort Distribution Graph -->
+    <rect x="410" y="80" width="330" height="220" rx="4" fill="#f8fafc"/>
+    <text x="420" y="110" font-family="Arial" font-size="18" font-weight="bold">Effort Components</text>
+    
+    <!-- Horizontal Bars -->
+    <rect x="420" y="140" width="250" height="25" rx="2" fill="#fbbf24" fill-opacity="0.2"/>
+    <rect x="420" y="140" width="50" height="25" rx="2" fill="#fbbf24"/>
+    <text x="430" y="157" font-family="Arial" font-size="14" fill="white">Walking to Station (20%)</text>
+    
+    <rect x="420" y="180" width="250" height="25" rx="2" fill="#fbbf24" fill-opacity="0.2"/>
+    <rect x="420" y="180" width="25" height="25" rx="2" fill="#fbbf24"/>
+    <text x="430" y="197" font-family="Arial" font-size="14" fill="white">Standing (10%)</text>
+    
+    <rect x="420" y="220" width="250" height="25" rx="2" fill="#fbbf24" fill-opacity="0.2"/>
+    <rect x="420" y="220" width="12" height="25" rx="2" fill="#fbbf24"/>
+    <text x="430" y="237" font-family="Arial" font-size="14" fill="white">Seated (5%)</text>
+    
+    <!-- Cost Section -->
+    <rect x="780" y="0" width="370" height="960" rx="8" fill="white" filter="url(#shadow)"/>
+    <text x="800" y="50" font-family="Arial" font-size="24" font-weight="bold" fill="#0288d1">Cost Analysis</text>
+    
+    <!-- Cost Score -->
+    <circle cx="1100" cy="45" r="30" fill="#22c55e" fill-opacity="0.2"/>
+    <text x="1090" y="52" font-family="Arial" font-size="20" font-weight="bold" fill="#16a34a">B+</text>
+    
+    <!-- Cost Breakdown Pie Chart -->
+    <rect x="800" y="80" width="330" height="220" rx="4" fill="#f8fafc"/>
+    <text x="810" y="110" font-family="Arial" font-size="18" font-weight="bold">Annual Cost Breakdown</text>
+    
+    <!-- Simplified Pie Chart -->
+    <circle cx="915" cy="190" r="60" fill="none" stroke="#60a5fa" stroke-width="20"/>
+    <circle cx="915" cy="190" r="60" fill="none" stroke="#93c5fd" stroke-width="20" stroke-dasharray="188.4 188.4"/>
+    <circle cx="915" cy="190" r="60" fill="none" stroke="#bfdbfe" stroke-width="20" stroke-dasharray="94.2 282.6"/>
+    
+    <!-- Legend -->
+    <text x="1000" y="170" font-family="Arial" font-size="16">🎫 Monthly Pass ($1,200)</text>
+    <text x="1000" y="200" font-family="Arial" font-size="16">🚶 Access Cost ($240)</text>
+    <text x="1000" y="230" font-family="Arial" font-size="16">⌚ Time Value ($360)</text>
+  </g>
+  
+  <!-- Filters/Controls -->
+  <rect x="40" y="1100" width="1120" height="80" rx="8" fill="white" filter="url(#shadow)"/>
+  <text x="60" y="1145" font-family="Arial" font-size="18" fill="#666">Time Period:</text>
+  <rect x="180" y="1120" width="120" height="40" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="210" y="1145" font-family="Arial" font-size="18" fill="#666">Daily</text>
+  <rect x="320" y="1120" width="120" height="40" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="350" y="1145" font-family="Arial" font-size="18" fill="#666">Monthly</text>
+  <rect x="460" y="1120" width="120" height="40" rx="20" fill="#0284c7"/>
+  <text x="490" y="1145" font-family="Arial" font-size="18" fill="white">Annual</text>
+  
+  <!-- Shadows and Filters -->
+  <defs>
+    <filter id="shadow" x="-1" y="-1" width="102%" height="102%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+</svg>
