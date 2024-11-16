@@ -1,11 +1,30 @@
 // js/map.js
 class MapManager {
     constructor() {
-        this.map = L.map('map').setView([51.505, -0.09], 13);
-        this.initializeMap();
-        this.route = null;
-        this.markers = [];
-        this.apiKey = CONFIG.apis.routing; // Your OpenRouteService API key
+        this.map = L.map('map', {
+            center: [42.3601, -71.0942],
+            zoom: 13,
+            zoomControl: true
+        });
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(this.map);
+    }
+            
+    initializeUI() {
+        // Create transport mode buttons
+        const modesContainer = document.querySelector('.transport-modes');
+        Object.keys(CONFIG.transportModes).forEach(mode => {
+            const button = document.createElement('button');
+            button.className = 'mode-button';
+            button.dataset.mode = mode;
+            button.textContent = CONFIG.transportModes[mode].name;
+            if (mode === this.selectedMode) button.classList.add('active');
+            modesContainer.appendChild(button);
+        });
+        
+        this.setupEventListeners();
     }
 
     initializeMap() {
@@ -43,12 +62,14 @@ class MapManager {
 
     async calculateRoute(start, end, mode) {
         try {
-            // Clear previous route
             this.clearMap();
-
-            // Geocode start and end points
+            
             const startCoords = await this.geocodeAddress(start);
             const endCoords = await this.geocodeAddress(end);
+            
+            if (!startCoords || !endCoords) {
+                throw new Error('Unable to geocode addresses');
+            }
 
             // Add markers for start and end points
             this.addMarker([startCoords[1], startCoords[0]], 'Start');
