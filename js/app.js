@@ -4,12 +4,11 @@ class RoutePlanner {
         this.mapManager = new MapManager();
         this.impactCalculator = new ImpactCalculator();
         this.photoManager = new PhotoManager();
-        this.initializeUI();
         this.selectedMode = 'car'; // Default mode
+        this.initializeUI();
     }
 
     initializeUI() {
-        this.createTransportModeButtons();
         this.setupEventListeners();
     }
 
