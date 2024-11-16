@@ -5,20 +5,13 @@ class MapManager {
         this.initializeMap();
         this.route = null;
         this.markers = [];
-        this.apiKey = CONFIG.apis.routing; // Your OpenRouteService API key
+        this.apiKey = CONFIG.apis.routing;
         this.baseUrl = 'https://api.openrouteservice.org/v2';
     }
 
     initializeMap() {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
-        }).addTo(this.map);
-
-        // Add user location control
-        L.control.locate({
-            position: 'topleft',
-            showCompass: true,
-            showPopup: false,
         }).addTo(this.map);
     }
 
